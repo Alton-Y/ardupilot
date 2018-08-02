@@ -197,6 +197,11 @@ AP_BattMonitor::read()
         df->Log_Write_Current();
         df->Log_Write_Power();
     }
+
+    DataFlash_Class::instance()->Log_Write("MPPT", "TimeUS,VPV,PVP", "Qff",
+                                        AP_HAL::micros64(),
+                                        (double)0,
+                                        (double)0);
 }
 
 // healthy - returns true if monitor is functioning
